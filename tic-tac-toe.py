@@ -45,11 +45,17 @@ class Game:
 game = Game()
 print(".............Welcome to tic-tac-toe............")
 print("let's begin the game..")
+
 while True:
     game.board()
+    print(f"now  player {game.player}'s turn ")
 
-
-    cell = int(input(f"enter the cell position from 0-8 to place {game.player}:- "))
+    while True:
+        try:
+            cell = int(input(f"enter the cell position from 0-8 to place {game.player}:- "))
+            break
+        except ValueError:
+            print("please enter a valid number between 0-8")
 
     if not game.move(cell):
         continue
